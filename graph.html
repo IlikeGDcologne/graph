@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Graph Studio</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="headerLeft">
+        <h1>📊 Graph Studio</h1>
+        <p>Create professional graphs in seconds.</p>
+      </div>
+
+      <button id="settingsBtn" title="Settings">⚙️</button>
+    </header>
+
+    <main>
+      <!-- LEFT PANEL -->
+      <section class="controls">
+        <h2>Graph Settings</h2>
+
+        <label>Graph Title</label>
+        <input
+          type="text"
+          id="graphTitle"
+          placeholder="Example: Monthly Sales"
+        />
+
+        <label>Graph Type</label>
+        <select id="graphType">
+          <option value="bar">Bar Graph</option>
+          <option value="line">Line Graph</option>
+          <option value="pie">Pie Chart</option>
+          <option value="doughnut">Doughnut Chart</option>
+          <option value="radar">Radar Chart</option>
+          <option value="polarArea">Polar Area Chart</option>
+          <option value="scatter">Scatter Plot</option>
+        </select>
+
+        <label>X Axis Label</label>
+        <input type="text" id="xLabel" />
+
+        <label>Y Axis Label</label>
+        <input type="text" id="yLabel" />
+
+        <hr />
+
+        <h2>Datasets</h2>
+
+        <div id="datasetContainer">
+          <div class="dataset">
+            <label>Dataset Name</label>
+            <input type="text" placeholder="Dataset 1" />
+
+            <label>Color</label>
+            <input type="color" value="#4e73df" />
+          </div>
+        </div>
+
+        <button id="addDataset">+ Add Dataset</button>
+
+        <hr />
+
+        <h2>Data Table</h2>
+
+        <table id="dataTable">
+          <thead>
+            <tr>
+              <th>Label</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td><input type="text" placeholder="January" /></td>
+              <td><input type="number" placeholder="100" /></td>
+            </tr>
+
+            <tr>
+              <td><input type="text" placeholder="February" /></td>
+              <td><input type="number" placeholder="120" /></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <button id="addRow">+ Add Row</button>
+
+        <hr />
+
+        <h2>Options</h2>
+
+        <label>
+          <input type="checkbox" id="showLegend" checked />
+          Show Legend
+        </label>
+
+        <br />
+
+        <label>
+          <input type="checkbox" id="showGrid" checked />
+          Show Gridlines
+        </label>
+
+        <hr />
+
+        <div class="buttons">
+          <button id="generateBtn">Generate Graph</button>
+
+          <button id="sampleBtn">Sample Data</button>
+
+          <button id="downloadPNG">Download PNG</button>
+
+          <button id="downloadCSV">Download CSV</button>
+
+          <button id="resetBtn">Reset</button>
+        </div>
+      </section>
+
+      <!-- RIGHT PANEL -->
+
+      <section class="graphSection">
+        <canvas id="graphCanvas"></canvas>
+
+        <div class="stats">
+          <h2>Statistics</h2>
+
+          <p>Total: <span id="sum">0</span></p>
+          <p>Average: <span id="average">0</span></p>
+          <p>Minimum: <span id="minimum">0</span></p>
+          <p>Maximum: <span id="maximum">0</span></p>
+          <p>Median: <span id="median">0</span></p>
+        </div>
+      </section>
+    </main>
+
+    <div id="settingsPanel">
+      <div class="settingsHeader">
+        <h2>Settings</h2>
+
+        <button id="closeSettings">✖</button>
+      </div>
+
+      <hr />
+
+      <label>
+        <input type="checkbox" id="darkMode" />
+        Dark Mode
+      </label>
+
+      <br /><br />
+
+      <label>
+        <input type="checkbox" id="livePreview" />
+        Live Preview
+      </label>
+
+      <br /><br />
+
+      <label>
+        <input type="checkbox" id="settingLegend" checked />
+        Show Legend
+      </label>
+
+      <br /><br />
+
+      <label>
+        <input type="checkbox" id="settingGrid" checked />
+        Show Gridlines
+      </label>
+    </div>
+
+    <script src="charts.js"></script>
+    <script src="graph.js"></script>
+  </body>
+</html>

@@ -1,0 +1,429 @@
+/* ===========================
+   Graph Studio Styles
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#eef3f9;
+    color:#222;
+}
+
+/* Header */
+
+header{
+    background:#2b6cff;
+    color:white;
+    text-align:center;
+    padding:25px;
+    box-shadow:0 3px 10px rgba(0,0,0,.15);
+}
+
+header h1{
+    font-size:2.3rem;
+    margin-bottom:8px;
+}
+
+header p{
+    opacity:.9;
+}
+
+/* Main Layout */
+
+main{
+    width:95%;
+    max-width:1600px;
+    margin:30px auto;
+    display:grid;
+    grid-template-columns:380px 1fr;
+    gap:25px;
+}
+
+/* Cards */
+
+.controls,
+.graphSection{
+    background:white;
+    border-radius:16px;
+    padding:25px;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+
+/* Headings */
+
+h2{
+    color:#2b6cff;
+    margin-bottom:15px;
+}
+
+/* Labels */
+
+label{
+    display:block;
+    margin-top:15px;
+    margin-bottom:6px;
+    font-weight:bold;
+}
+
+/* Inputs */
+
+input,
+select{
+    width:100%;
+    padding:10px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:15px;
+}
+
+input:focus,
+select:focus{
+    outline:none;
+    border-color:#2b6cff;
+    box-shadow:0 0 8px rgba(43,108,255,.3);
+}
+
+/* Color Picker */
+
+input[type="color"]{
+    height:45px;
+    padding:4px;
+}
+
+/* Checkboxes */
+
+input[type="checkbox"]{
+    width:auto;
+    margin-right:8px;
+}
+
+/* Dataset Box */
+
+.dataset{
+    border:1px solid #ddd;
+    border-radius:12px;
+    padding:15px;
+    margin-bottom:15px;
+    background:#f8fbff;
+}
+
+/* Table */
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:15px;
+}
+
+th{
+    background:#2b6cff;
+    color:white;
+    padding:12px;
+}
+
+td{
+    border:1px solid #ddd;
+    padding:8px;
+}
+
+td input{
+    border:none;
+    width:100%;
+    padding:8px;
+}
+
+td input:focus{
+    box-shadow:none;
+}
+
+/* Buttons */
+
+.buttons{
+    display:grid;
+    gap:10px;
+    margin-top:20px;
+}
+
+button{
+    background:#2b6cff;
+    color:white;
+    border:none;
+    border-radius:10px;
+    padding:12px;
+    cursor:pointer;
+    font-size:15px;
+    transition:.25s;
+}
+
+button:hover{
+    background:#1957db;
+    transform:translateY(-2px);
+}
+
+button:active{
+    transform:scale(.97);
+}
+
+/* Divider */
+
+hr{
+    margin:25px 0;
+    border:none;
+    border-top:1px solid #ddd;
+}
+
+/* Graph */
+
+.graphSection{
+    display:flex;
+    flex-direction:column;
+}
+
+canvas{
+    width:100% !important;
+    max-height:520px;
+}
+
+/* Statistics */
+
+.stats{
+    margin-top:30px;
+    background:#f5f8ff;
+    border-radius:12px;
+    padding:20px;
+}
+
+.stats p{
+    margin:10px 0;
+    font-size:16px;
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#2b6cff;
+    border-radius:10px;
+}
+
+/* Mobile */
+
+@media(max-width:1000px){
+
+    main{
+        grid-template-columns:1fr;
+    }
+
+}
+
+/* ===================================
+   HEADER
+=================================== */
+
+header{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+}
+
+.headerLeft{
+    text-align:left;
+}
+
+/* ===================================
+   SETTINGS BUTTON
+=================================== */
+
+#settingsBtn{
+
+    width:55px;
+    height:55px;
+
+    border-radius:50%;
+
+    font-size:28px;
+
+    background:white;
+
+    color:#2b6cff;
+
+    cursor:pointer;
+
+    border:none;
+
+    transition:.3s;
+
+    box-shadow:0 5px 12px rgba(0,0,0,.15);
+
+}
+
+#settingsBtn:hover{
+
+    transform:rotate(90deg) scale(1.08);
+
+}
+
+/* ===================================
+   SETTINGS PANEL
+=================================== */
+
+#settingsPanel{
+
+    position:fixed;
+
+    top:0;
+    right:-340px;
+
+    width:320px;
+    height:100%;
+
+    background:white;
+
+    box-shadow:-8px 0 25px rgba(0,0,0,.25);
+
+    transition:.35s ease;
+
+    padding:25px;
+
+    z-index:1000;
+
+    overflow-y:auto;
+
+}
+
+#settingsPanel.open{
+
+    right:0;
+
+}
+
+.settingsHeader{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+#closeSettings{
+
+    width:42px;
+    height:42px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    border:none;
+    border-radius:50%;
+
+    background:#ff4d4d;
+    color:white;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+}
+
+#closeSettings:hover{
+
+    background:#e53935;
+
+}
+
+/* ===================================
+   DARK MODE
+=================================== */
+
+body.dark{
+
+    background:#121212;
+
+    color:white;
+
+}
+
+body.dark .controls,
+body.dark .graphSection,
+body.dark #settingsPanel{
+
+    background:#1f1f1f;
+
+    color:white;
+
+}
+
+body.dark input,
+body.dark select{
+
+    background:#2b2b2b;
+
+    color:white;
+
+    border:1px solid #555;
+
+}
+
+body.dark table td{
+
+    border-color:#555;
+
+}
+
+body.dark .stats{
+
+    background:#2a2a2a;
+
+}
+
+body.dark hr{
+
+    border-color:#444;
+
+}
+
+body.dark .dataset{
+
+    background:#2a2a2a;
+
+    border-color:#555;
+
+}
+
+#settingsBtn{
+
+    width:55px;
+    height:55px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:28px;
+
+    border:none;
+    border-radius:50%;
+
+    background:white;
+    color:#2b6cff;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    box-shadow:0 5px 12px rgba(0,0,0,.15);
+
+}
